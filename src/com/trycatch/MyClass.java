@@ -8,12 +8,13 @@ class InvalidCustomerException extends Exception {
 	}
 }
 
+
 class Customer {
 	int accno = 111;
 	int pin = 234;
-
 	int accno1;
 	int pin1;
+	
 
 	void collectData() {
 		Scanner sc = new Scanner(System.in);
@@ -21,6 +22,7 @@ class Customer {
 		accno1 = sc.nextInt();
 		System.out.println("Enter the pin:");
 		pin1 = sc.nextInt();
+		
 	}
 
 	void verify() throws InvalidCustomerException {
@@ -32,17 +34,20 @@ class Customer {
 			throw ice;
 		}
 	}
+	
 }
 
 class Bank {
-	void customerCheck() {
+	void customerCheck()  {
 		Customer c1 = new Customer();
 		c1.collectData();
 		try {
 			c1.verify();
 		} catch (InvalidCustomerException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
 	}
 }
 
